@@ -82,10 +82,6 @@ function initRoutes(app) {
 
                     for (var action in actions) {
 
-                        /* make sure that we dealing with action name */
-                        /* if we specify in route config action name eg eg [actionname]Action we pass throw first condition
-                         * */
-
 
                         if (invokable[actions[action] + 'Action']) {
                             var actionName = actions[action] + 'Action';
