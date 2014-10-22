@@ -1,0 +1,9 @@
+{
+    "post":{
+         "api":["index","creatememo"]
+    },
+
+    "get":{
+        "api":["index","getmemo"]
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "rest",
+  "version": "1.0.0",
+  "description": "demo rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "viktor",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "express": "^4.9.8",
+    "mongoose": "^3.8.17",
+    "querystring": "^0.2.0",
+    "sanitizer": "^0.1.2"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "grunt": "^0.4.5",
+    "grunt-cafe-mocha": "^0.1.13",
+    "mocha": "^1.21.5",
+    "restler": "^3.2.2"
+  }
+}
