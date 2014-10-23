@@ -66,14 +66,14 @@ function initRoutes(app) {
    }
 
     for (var requestType in routes) {
-        //Here is we check for supported request types from global config
+
         if (~globVars.get('mainConfig').supportedRequests.indexOf(requestType)) {
 
             for (var controller in routes[requestType]) {
-                //Get controller full path
+
                 var contr = require(globVars.get('appPath') + '/controllers/' + controller + '.js');
 
-                //check prototype of module, if is function we accept it
+
 
                 if (invokable=isControllerInvokable(contr)) {
 
@@ -133,7 +133,7 @@ function initRoutes(app) {
 
 function isControllerInvokable(controller){
     if (controller instanceof Function) {
-        //get object of controller which returned from constructor
+
         var invokable = controller();
 
         if (typeof invokable !== 'object')
