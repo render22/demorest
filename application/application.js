@@ -17,7 +17,7 @@ function Init(app) {
 
     app.use(require('body-parser')());
 
-    setEnvSettings();
+
     initRoutes(app);
 
     app.use(function (req, res, next) {
@@ -60,7 +60,7 @@ function initRoutes(app) {
 
        if (invokable=isControllerInvokable(indexController)) {
            if(invokable['indexAction']){
-               app.get('/',invokable['indexAction'].bind(indexController));
+               app.get('/',invokable['indexAction'].bind(invokable));
            }
        }
    }
@@ -85,7 +85,7 @@ function initRoutes(app) {
 
                         if (invokable[actions[action] + 'Action']) {
                             var actionName = actions[action] + 'Action';
-                            app[requestType]('/' + controller + '/' + actions[action], invokable[actionName].bind(controller));
+                            app[requestType]('/' + controller + '/' + actions[action], invokable[actionName].bind(invokable));
 
                         } else {
 
@@ -101,11 +101,11 @@ function initRoutes(app) {
 
                                     if (invokable[actionName] instanceof Function)
 
-                                        invokable[actionName].apply(controller, arguments);
+                                        invokable[actionName].apply(invokable, arguments);
 
                                 } else if (invokable['indexAction'] instanceof Function) {
 
-                                         invokable['indexAction'].apply(controller, arguments);
+                                         invokable['indexAction'].apply(invokable, arguments);
 
                                 } else {
 
@@ -145,26 +145,7 @@ function isControllerInvokable(controller){
     }
  }
 
-function setEnvSettings() {
 
-    switch (app.get('env')) {
-
-        case 'development':
-
-
-            break;
-
-        case 'production':
-
-
-            break;
-
-        default:
-
-            throw new Error('Unknown execution environment: ' + app.get('env'));
-
-    }
-}
 
 
 module.exports = Init;
